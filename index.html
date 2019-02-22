@@ -1,0 +1,211 @@
+<html>
+
+  <head>
+    <title>Dorkus Malorkus</title>
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src='/lib/client/base/ajax.js'></script>
+    <script src='/lib/client/base.js'></script>
+
+    <script src='/lib/client/authors.js'></script>
+    <script src='/lib/client/posts.js'></script>
+    <script src='/lib/client/topics.js'></script>
+
+    <script src='/lib/page.js'></script>
+
+    <script>
+      const parameters = Page.getQueryParameters();
+
+      function footerAction(targ) {
+        let id = targ.innerText.toLowerCase();
+        let handle = id.replace(/\s/, '-');
+
+        Page.setQueryParameter('handle', handle, true);
+      }
+
+      function setContent(content) {
+        this.innerHTML = content;
+      }
+
+      function populateTopics(handles) {
+
+        handles.forEach((handle) => {
+          let newEl = document.createElement(this.tagName);
+
+          newEl.classList = this.classList;
+          newEl.innerHTML = this.innerHTML;
+
+          setContent.call(newEl, handle);
+
+          let url = document.location.toString().match(/^.+(?=\?)/);
+          let query = Page.objectToQuery({ 'topic': newEl.innerText });
+
+          newEl.href = [url, query].join('?');
+          newEl.classList.remove('template');
+
+          this.parentElement.prepend(newEl);
+        });
+
+      }
+
+      function populateEntries(handles) {
+
+        handles.forEach((handle) => {
+          let post = new Posts(handle);
+          let newEl = document.createElement(this.tagName);
+
+          newEl.id = handle;
+          newEl.classList = this.classList;
+          newEl.innerHTML = this.innerHTML;
+          newEl.style = this.style;
+
+          let headerEl = newEl.getElementsByClassName('header')[0];
+          let subheaderEl = newEl.getElementsByClassName('subheader')[0];
+          let bodyEl = newEl.getElementsByClassName('body')[0];
+          let authorEl = newEl.getElementsByClassName('author')[0];
+          let dateEl = newEl.getElementsByClassName('date')[0];
+
+          post.body.then(setContent.bind(bodyEl));
+          post.header.then((header) => {
+            setContent.call(headerEl, header);
+
+            if (parameters.handle) {
+              document.title = header;
+            }
+
+          });
+          post.subheader.then(setContent.bind(subheaderEl));
+
+
+          post.author.then((author) => {
+            let query = Page.objectToQuery({ 'handle': author });
+
+            setContent.call(authorEl, author);
+
+            authorEl.href = ['/', query].join('?');
+          });
+
+          post.created.then((timestamp) => {
+            let date = new Date(timestamp);
+
+            setContent.call(dateEl, date.toLocaleDateString());
+          });
+
+          post.expanded.then((expanded) => {
+            if (expanded) {
+              newEl.classList.add('expanded');
+            }
+
+          });
+
+
+          newEl.classList.remove('template');
+
+          let anchor = newEl.getElementsByTagName('a')[0];
+
+          if (anchor.href.match(/\?[\w=%]+$/)) {
+            anchor.href += '&';
+          } else {
+            anchor.href += '?';
+          }
+
+          anchor.href += ['handle', newEl.id].join('=');
+
+          this.parentElement.append(newEl);
+        });
+
+      }
+
+    </script>
+
+
+
+    <script>
+
+      window.addEventListener('DOMContentLoaded', (evt) => {
+        // base html document parsed. no content, styles, etc.
+
+        let entriesTempl = document.getElementsByClassName('entry')[0];
+
+        let parentEl = document.getElementById('topics')
+        let topicsTempl = parentEl.getElementsByClassName('template')[0];
+
+        Topics.list(/*parameters*/)
+          .then(populateTopics.bind(topicsTempl));
+
+        Posts.list(parameters)
+          .then(populateEntries.bind(entriesTempl));
+      });
+
+      window.addEventListener("load", (evt) => {
+        // all resources loaded!
+
+        let contentEl = document.getElementById('content');
+
+        if (parameters.handle) {
+          // if a handle is given, we only load a single entry.
+          let el = document.getElementById(parameters.handle);
+
+          el.classList.add('expanded');
+          el.getElementsByTagName('a')[0].removeAttribute('href');
+        }
+
+
+        contentEl.classList.remove('invisible');
+      });
+
+    </script>
+
+
+  </head>
+
+  <body>
+
+    <div id='content' class='invisible'>
+      <div id='header'>
+        <div id='topics'>
+          <a class='template'><!-- intentionally left blank. --></a>
+        </div>
+        <div id='logo'><a href='/'>DORKUS MALORKUS</a></div>
+
+      </div>
+
+      <div class='entry template'>
+        <a>
+          <div class='header'>
+            <!-- intentionally left blank. -->
+          </div>
+          <div class='subheader'>
+            <!-- intentionally left blank. -->
+          </div>
+
+          <div class='body'>
+            <!-- intentionally left blank. -->
+          </div>
+
+          <div class='footer'>
+            posted on <span class='date'><!-- intentionally left blank --></span> by <a class='author'><!-- intentionally left blank --></a>
+          </div>
+
+        </a>
+      </div>
+      <div id='footer'>
+        <div id='menu'>
+          <a class='option' href='/?handle=login'>Login</a>
+          <a class='option' href='/?handle=privacy-policy'>Privacy Policy</a>
+          <a class='option' href='/?handle=about-us'>About Us</a>
+        </div>
+
+        <div class='legal'>
+         <p>&copy; 2019 Dorkus Malorkus, all rights reserved.&nbsp;&nbsp;All content herein, unless stated otherwise therein, is available under the <a href='https://creativecommons.org/licenses/by/4.0/'><i>Creative Commons Attribution 4.0</i> license</a>. <a href='https://creativecommons.org/licenses/by/4.0/'><img class='cc-logo' src='/img/creativecommons-license-by.png' title='Creative Commons Attribution 4.0 License'></img></a></p>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </body>
+
+
+</html>
