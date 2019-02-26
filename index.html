@@ -14,7 +14,7 @@
     <script src='/lib/page.js'></script>
 
     <script>
-      const parameters = Page.getQueryParameters();
+      let parameters;
 
       function footerAction(targ) {
         let id = targ.innerText.toLowerCase();
@@ -98,7 +98,6 @@
 
           });
 
-
           newEl.classList.remove('template');
 
           let anchor = newEl.getElementsByTagName('a')[0];
@@ -124,6 +123,7 @@
 
       window.addEventListener('DOMContentLoaded', (evt) => {
         // base html document parsed. no content, styles, etc.
+        parameters = Page.getQueryParameters(); // set global.
 
         let entriesTempl = document.getElementsByClassName('entry')[0];
 
