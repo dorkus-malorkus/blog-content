@@ -14,7 +14,6 @@
     <script src='/lib/page.js'></script>
 
     <script>
-      let parameters;
 
       function footerAction(targ) {
         let id = targ.innerText.toLowerCase();
@@ -51,6 +50,7 @@
       function populateEntries(handles) {
 
         handles.forEach((handle) => {
+          let parameters = window.parameters;
           let post = new Posts(handle);
           let newEl = document.createElement(this.tagName);
 
@@ -118,40 +118,43 @@
     </script>
 
 
-
     <script>
 
       window.addEventListener('DOMContentLoaded', (evt) => {
         // base html document parsed. no content, styles, etc.
-        parameters = Page.getQueryParameters(); // set global.
+        window.parameters = Page.getQueryParameters(); // set global.
 
-        let entriesTempl = document.getElementsByClassName('entry')[0];
-
+        let parameters = window.parameters;
         let parentEl = document.getElementById('topics')
         let topicsTempl = parentEl.getElementsByClassName('template')[0];
 
         Topics.list(/*parameters*/)
           .then(populateTopics.bind(topicsTempl));
 
-        Posts.list(parameters)
-          .then(populateEntries.bind(entriesTempl));
       });
 
       window.addEventListener("load", (evt) => {
         // all resources loaded!
-
+        let parameters = window.parameters;
         let contentEl = document.getElementById('content');
+        let entriesTempl = document.getElementsByClassName('entry')[0];
 
-        if (parameters.handle) {
-          // if a handle is given, we only load a single entry.
-          let el = document.getElementById(parameters.handle);
+        Posts.list(parameters)
+          .then(populateEntries.bind(entriesTempl))
+          .then(() => {
+            let parameters = window.parameters;
 
-          el.classList.add('expanded');
-          el.getElementsByTagName('a')[0].removeAttribute('href');
-        }
+            if (parameters.handle) {
+              // if a handle is given, we only load a single entry.
+              let el = document.getElementById(parameters.handle);
 
+              el.classList.add('expanded');
+              el.getElementsByTagName('a')[0].removeAttribute('href');
+            }
 
-        contentEl.classList.remove('invisible');
+            contentEl.classList.remove('invisible');
+          });
+
       });
 
     </script>
