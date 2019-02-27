@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+SSH_USER=dm-content
+SSH_HOST=www.dorkusmalorkus.org
+
+REPO=blog-content
+
+ssh -C -x $SSH_USER@$SSH_HOST "cd ~/$REPO; git pull origin master"
