@@ -137,7 +137,9 @@
         // all resources loaded!
         let parameters = window.parameters;
         let contentEl = document.getElementById('content');
-        let entriesTempl = document.getElementsByClassName('entry')[0];
+
+        let entriesTempl = document.getElementById('entries')
+          .getElementsByClassName('template')[0];
 
         Posts.list(parameters)
           .then(populateEntries.bind(entriesTempl))
@@ -173,25 +175,29 @@
 
       </div>
 
-      <div class='entry template'>
-        <a>
-          <div class='header'>
-            <!-- intentionally left blank. -->
-          </div>
-          <div class='subheader'>
-            <!-- intentionally left blank. -->
-          </div>
+      <div id='entries'>
+        <div class='entry template'>
+          <a>
+            <div class='header'>
+              <!-- intentionally left blank. -->
+            </div>
+            <div class='subheader'>
+              <!-- intentionally left blank. -->
+            </div>
 
-          <div class='body'>
-            <!-- intentionally left blank. -->
-          </div>
+            <div class='body'>
+              <!-- intentionally left blank. -->
+            </div>
 
-          <div class='footer'>
-            posted on <span class='date'><!-- intentionally left blank --></span> by <a class='author'><!-- intentionally left blank --></a>
-          </div>
+            <div class='footer'>
+              posted on <span class='date'><!-- intentionally left blank --></span> by <a class='author'><!-- intentionally left blank --></a>
+            </div>
 
-        </a>
+          </a>
+        </div>
+
       </div>
+
       <div id='footer'>
         <div id='menu'>
           <a class='option' href='/?handle=login'>Login</a>
@@ -200,15 +206,14 @@
         </div>
 
         <div class='legal'>
-         <p>&copy; 2019 Dorkus Malorkus, all rights reserved.&nbsp;&nbsp;All content herein, unless stated otherwise therein, is available under the <a href='https://creativecommons.org/licenses/by/4.0/'><i>Creative Commons Attribution 4.0</i> license</a>. <a href='https://creativecommons.org/licenses/by/4.0/'><img class='cc-logo' src='/img/creativecommons-license-by.png' title='Creative Commons Attribution 4.0 License'></img></a></p>
+          <p>&copy; 2019 <a href='/'>Dorkus Malorkus</a>, all rights reserved.&nbsp;&nbsp;<br/>All content herein, unless stated otherwise therein, is available under the <a href='https://creativecommons.org/licenses/by/4.0/'><i>Creative Commons Attribution 4.0</i> license</a>.</p>
+          <a href='https://creativecommons.org/licenses/by/4.0/'><img class='cc-logo' src='/img/creativecommons-license-by.png' title='Creative Commons Attribution 4.0 License'></img></a>
         </div>
 
       </div>
+
     </div>
 
-
-
   </body>
-
 
 </html>
