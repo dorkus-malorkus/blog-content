@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+SCRIPT_PATH=$(dirname $0)
+ROOT_PATH=$(readlink -f $SCRIPT_PATH/..)
+STYLES_PATH=$(readlink -f $ROOT_PATH/styles)
+BIN_PATH=$SCRIPT_PATH/node_modules/.bin
+
+BIN="$BIN_PATH/uglifycss"
+ARGS="--expand-vars"
+
+$BIN $ARGS --output $STYLES_PATH/main-min.js $STYLES_PATH/main.css
