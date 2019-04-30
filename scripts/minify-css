@@ -8,4 +8,4 @@ BIN_PATH=$SCRIPT_PATH/node_modules/.bin
 BIN="$BIN_PATH/uglifycss"
 ARGS="--expand-vars"
 
-$BIN $ARGS --output $STYLES_PATH/main-min.js $STYLES_PATH/main.css
+$BIN $ARGS --output $STYLES_PATH/main.css.min $STYLES_PATH/main.css
