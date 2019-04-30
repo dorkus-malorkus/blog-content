@@ -1,0 +1,12 @@
+{
+  "name": "dm-public",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "uglify-es": "^3.3.9",
+    "uglifycss": "^0.0.29"
+  },
+  "scripts": {
+    "start": "node ./server.js"
+  }
+}
