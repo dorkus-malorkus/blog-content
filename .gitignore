@@ -1,0 +1,9 @@
+# toolchain artifacts
+*.sw*
+
+# productions artifacts
+*-min.*
+*.min.*
+
+# node artifacts
+node_modules
