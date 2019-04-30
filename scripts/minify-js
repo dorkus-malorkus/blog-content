@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+SCRIPT_PATH=$(dirname $0)
+ROOT_PATH=$(readlink -f $SCRIPT_PATH/..)
+LIB_PATH=$(readlink -f $ROOT_PATH/lib)
+BIN_PATH=$SCRIPT_PATH/node_modules/.bin
+
+BIN="$BIN_PATH/uglifyjs"
+ARGS="-c -m"
+
+$BIN $ARGS -o $LIB_PATH/page-min.js $LIB_PATH/page.js
+$BIN $ARGS -o $LIB_PATH/client/authors-min.js $LIB_PATH/client/authors.js
+$BIN $ARGS -o $LIB_PATH/client/base-min.js $LIB_PATH/client/base.js
+$BIN $ARGS -o $LIB_PATH/client/posts-min.js $LIB_PATH/client/posts.js
+$BIN $ARGS -o $LIB_PATH/client/topics-min.js $LIB_PATH/client/topics.js
+$BIN $ARGS -o $LIB_PATH/client/base/ajax-min.js $LIB_PATH/client/base/ajax.js
