@@ -8,10 +8,10 @@ BIN_PATH=$SCRIPT_PATH/node_modules/.bin
 BIN="$BIN_PATH/uglifyjs"
 ARGS="-c -m"
 
-$BIN $ARGS -o $LIB_PATH/index.js.min $LIB_PATH/index.js
-$BIN $ARGS -o $LIB_PATH/page.js.min $LIB_PATH/page.js
-$BIN $ARGS -o $LIB_PATH/client/authors.js.min $LIB_PATH/client/authors.js
-$BIN $ARGS -o $LIB_PATH/client/base.js.min $LIB_PATH/client/base.js
-$BIN $ARGS -o $LIB_PATH/client/posts.js.min $LIB_PATH/client/posts.js
-$BIN $ARGS -o $LIB_PATH/client/topics.js.min $LIB_PATH/client/topics.js
-$BIN $ARGS -o $LIB_PATH/client/base/ajax.js.min $LIB_PATH/client/base/ajax.js
+$BIN $ARGS -o $LIB_PATH/index.min.js $LIB_PATH/index.js
+$BIN $ARGS -o $LIB_PATH/page.min.js $LIB_PATH/page.js
+$BIN $ARGS -o $LIB_PATH/client/authors.min.js $LIB_PATH/client/authors.js
+$BIN $ARGS -o $LIB_PATH/client/base.min.js $LIB_PATH/client/base.js
+$BIN $ARGS -o $LIB_PATH/client/posts.min.js $LIB_PATH/client/posts.js
+$BIN $ARGS -o $LIB_PATH/client/topics.min.js $LIB_PATH/client/topics.js
+$BIN $ARGS -o $LIB_PATH/client/base/ajax.min.js $LIB_PATH/client/base/ajax.js
