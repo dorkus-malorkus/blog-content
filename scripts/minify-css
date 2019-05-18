@@ -8,7 +8,7 @@ BIN_PATH=$SCRIPT_PATH/node_modules/.bin
 BIN="$BIN_PATH/uglifycss"
 ARGS="--expand-vars"
 
-$BIN $ARGS --output $STYLES_PATH/main.css.min $STYLES_PATH/main.css
-$BIN $ARGS --output $STYLES_PATH/header.css.min $STYLES_PATH/header.css
-$BIN $ARGS --output $STYLES_PATH/footer.css.min $STYLES_PATH/footer.css
-$BIN $ARGS --output $STYLES_PATH/entires.css.min $STYLES_PATH/entries.css
+$BIN $ARGS --output $STYLES_PATH/main.min.css $STYLES_PATH/main.css
+$BIN $ARGS --output $STYLES_PATH/header.min.css $STYLES_PATH/header.css
+$BIN $ARGS --output $STYLES_PATH/footer.min.css $STYLES_PATH/footer.css
+$BIN $ARGS --output $STYLES_PATH/entries.min.css $STYLES_PATH/entries.css
