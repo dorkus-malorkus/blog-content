@@ -8,6 +8,7 @@ BIN_PATH=$SCRIPT_PATH/node_modules/.bin
 BIN="$BIN_PATH/uglifyjs"
 ARGS="-c -m"
 
+$BIN $ARGS -o $LIB_PATH/index.js.min $LIB_PATH/index.js
 $BIN $ARGS -o $LIB_PATH/page.js.min $LIB_PATH/page.js
 $BIN $ARGS -o $LIB_PATH/client/authors.js.min $LIB_PATH/client/authors.js
 $BIN $ARGS -o $LIB_PATH/client/base.js.min $LIB_PATH/client/base.js
