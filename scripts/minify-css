@@ -9,3 +9,6 @@ BIN="$BIN_PATH/uglifycss"
 ARGS="--expand-vars"
 
 $BIN $ARGS --output $STYLES_PATH/main.css.min $STYLES_PATH/main.css
+$BIN $ARGS --output $STYLES_PATH/header.css.min $STYLES_PATH/header.css
+$BIN $ARGS --output $STYLES_PATH/footer.css.min $STYLES_PATH/footer.css
+$BIN $ARGS --output $STYLES_PATH/entires.css.min $STYLES_PATH/entries.css
