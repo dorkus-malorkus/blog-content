@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+SCRIPT_PATH=$( dirname $0 )
+ROOT_PATH=$SCRIPT_PATH/..
+
+JS_PATH=$ROOT_PATH/lib
+STYLE_PATH=$ROOT_PATH/styles
+
+rm -rf $STYLE_PATH/*.min.css
+rm -rf $JS_PATH/*.min.js
+rm -rf $JS_PATH/client/*.min.js
+rm -rf $JS_PATH/client/base/*.min.js
