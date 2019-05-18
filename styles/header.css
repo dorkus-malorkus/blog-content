@@ -1,0 +1,39 @@
+
+#content #header {
+  color: var(--header-text-color);
+
+  font-family: title;
+
+  text-align: right;
+}
+
+
+#content #header #topics {
+  float: left;
+}
+
+#content #header #topics a {
+  font-size: 32pt;
+  margin-right: 1em;
+
+  opacity: .90;
+
+  transition: opacity .25s ease-in-out;
+}
+
+#content #header #topics a:hover {
+  opacity: 1.0;
+}
+
+#content #header #logo a {
+  display: inline;
+
+  opacity: .90;
+  font-size: 48pt;
+
+  transition: opacity .25s ease-in-out;
+}
+
+#content #header #logo a:hover {
+  opacity: 1.0;
+}

@@ -1,0 +1,74 @@
+
+#content #entries .entry {
+  color: var(--entry-text-color);
+  background: linear-gradient(70deg, var(--entry-bg-color-dark) 30%, var(--entry-bg-color-light) 100%);
+
+  opacity: .90;
+
+  text-align: justify;
+
+  border-color: var(--entry-border-color);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+
+  padding: 1em;
+  margin-bottom: 3em;
+
+  overflow: hidden;
+  /*max-height: 24em;*/
+
+  transition: opacity .25s ease-in-out;
+}
+
+#content #entries .entry:hover {
+  opacity: 1.0;
+}
+
+#content #entries .entry a:hover {
+  cursor: default;
+  opacity: 1.0;
+}
+
+#content #entries .entry .header {
+  font-size: 32pt;
+}
+
+#content #entries .entry .subheader {
+  font-size: 16pt;
+}
+
+#content #entries .entry .body {
+  text-align: justify;
+
+  padding: 1em 1em 1em 1em;
+  font-size: 14pt;
+  font-family: common;
+}
+
+#content #entries .entry .body img {
+  border-radius: 8px;
+}
+
+
+#content #entries .entry .body a:hover {
+  opacity: 1.0;
+
+}
+
+#content #entries .entry .footer {
+  font-size: 12pt;
+  white-space: nowrap;
+}
+
+#content #entries .entry .footer .date,
+#content #entries .entry .footer .time,
+#content #entries .entry .footer .author {
+  font-weight: bold;
+}
+
+#content #entries .entry .footer {
+  font-size: 12pt;
+
+  text-align: right;
+}

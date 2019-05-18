@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: common;
   src: url(/fonts/kelson-sans-regular.otf);
@@ -14,9 +15,6 @@
   font-family: title;
   src: url(/fonts/makhina.ttf);
 }
-
-
-
 
 :root {
   --bg-color-dark: #202325;
@@ -67,172 +65,9 @@ body {
   opacity: 0.9;
 }
 
-
-#content #header {
-  color: var(--header-text-color);
-
-  font-family: title;
-
-  text-align: right;
-}
-
-
-#content #header #topics {
-  float: left;
-}
-
-#content #header #topics a {
-  font-size: 32pt;
-  margin-right: 1em;
-
-  opacity: .90;
-
-  transition: opacity .25s ease-in-out;
-}
-
-#content #header #topics a:hover {
-  opacity: 1.0;
-}
-
-#content #header #logo a {
-  display: inline;
-
-  opacity: .90;
-  font-size: 48pt;
-
-  transition: opacity .25s ease-in-out;
-}
-
-#content #header #logo a:hover {
-  opacity: 1.0;
-}
-
-#content .entry {
-  color: var(--entry-text-color);
-  background: linear-gradient(70deg, var(--entry-bg-color-dark) 30%, var(--entry-bg-color-light) 100%);
-
-  opacity: .90;
-
-  text-align: justify;
-
-  border-color: var(--entry-border-color);
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 12px;
-
-  padding: 1em;
-  margin-bottom: 3em;
-
-  overflow: hidden;
-  /*max-height: 24em;*/
-
-  transition: opacity .25s ease-in-out;
-}
-
-#content #entries .entry:hover {
-  opacity: 1.0;
-}
-
-
 #content .expanded {
   overflow: visible;
   max-height: none;
 
   opacity: 1.0;
-}
-
-#content #entries .entry a:hover {
-  cursor: default;
-  opacity: 1.0;
-}
-
-#content #entries .entry .header {
-  font-size: 32pt;
-}
-
-#content #entries .entry .subheader {
-  font-size: 16pt;
-}
-
-#content #entries .entry .body {
-  text-align: justify;
-
-  padding: 1em 1em 1em 1em;
-  font-size: 14pt;
-  font-family: common;
-}
-
-#content #entries .entry .body img {
-  border-radius: 8px;
-}
-
-
-#content #entries .entry .body a:hover {
-  opacity: 1.0;
-
-}
-
-#content #entries .entry .footer {
-  font-size: 12pt;
-  white-space: nowrap;
-}
-
-#content #entries .entry .footer .date,
-#content #entries .entry .footer .time,
-#content #entries .entry .footer .author {
-  font-weight: bold;
-}
-
-#content #footer {
-  text-align: justify;
-
-  bottom: 0px;
-
-  width: 100%;
-
-  color: var(--header-text-color);
-}
-
-#content #footer .legal {
-  font-size: 8pt;
-  white-space: nowrap;
-
-  text-align: center;
-  transition: color .0625s ease-in-out;
-}
-
-#content #footer .legal a:hover {
-  color: var(--header-highlight-fg-color);
-}
-
-#content #footer .legal .cc-logo {
-  width: 80px;
-
-  transition: width .25s ease-in-out;
-
-  border-radius: 4px;
-}
-
-#content #footer #menu {
-  color: var(--header-text-color);
-
-  font-size: 14pt;
-  text-align: center;
-}
-
-#content #footer #menu .option {
-  padding-left: 1.25em;
-  padding-right: 1.25em;
-
-  transition: color .0625s ease-in-out;
-}
-
-#content #footer #menu .option:hover {
-  color: var(--header-highlight-fg-color);
-}
-
-#content #entries .entry .footer {
-  font-size: 12pt;
-
-  text-align: right;
 }
