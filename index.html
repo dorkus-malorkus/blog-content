@@ -3,8 +3,10 @@
   <head>
     <title>Dorkus Malorkus</title>
 
+    <script src='/lib/page.js'></script>
 
     <script>
+      window.parameters = Page.getQueryParameters(); // set global.
       window.promises = {};
 
       // load stylesheets asynchronously.
@@ -12,48 +14,23 @@
         'styles/main.css'
       ];
 
-      let stylesheetPromises = stylesheets.map((url) => {
-
-        return new Promise((resolve, reject) => {
-          let el = document.createElement( "link" );
-          let head = document.head;
-          let numNodes = head.childNodes.length;
-
-          el.rel = "stylesheet";
-          el.href = url;
-
-          // insert at the end of head.
-          head.insertBefore(el, head.childNodes[numNodes - 1].nextSibling);
-
-          resolve();
-        });
-
-      });
-
-      window.promises.stylesheets = Promise.all(stylesheetPromises);
-
     </script>
-
-
-    <script src='/lib/page.js'></script>
 
     <script src='/lib/client/base/ajax.js'></script>
     <script src='/lib/client/base.js'></script>
 
-    <script src='/lib/client/authors.js'></script>
     <script src='/lib/client/posts.js'></script>
     <script src='/lib/client/topics.js'></script>
 
     <script>
-      window.parameters = Page.getQueryParameters(); // set global.
-
       // start loading our content as early as possible.
       window.promises.topics = Topics.list(/*window.parameters*/);
       window.promises.posts = Posts.list(window.parameters);
 
     </script>
 
-
+    <!-- start loading our page content -->
+    <script src='/lib/client/authors.js'></script>
     <script src='/lib/index.js'></script>
 
     <script>
@@ -96,8 +73,28 @@
 
       });
 
-    </script>
+      let stylesheetPromises = stylesheets.map((url) => {
+        // load our stylesheets asynchronously.
 
+        return new Promise((resolve, reject) => {
+          let el = document.createElement( "link" );
+          let head = document.head;
+          let numNodes = head.childNodes.length;
+
+          el.rel = "stylesheet";
+          el.href = url;
+
+          // insert at the end of head.
+          head.insertBefore(el, head.childNodes[numNodes - 1].nextSibling);
+
+          resolve();
+        });
+
+      });
+
+      window.promises.stylesheets = Promise.all(stylesheetPromises);
+
+    </script>
 
   </head>
 
