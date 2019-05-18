@@ -3,7 +3,7 @@
 
 # productions artifacts
 *-min.*
-*.min.*
+*.min*
 
 # node artifacts
 node_modules
