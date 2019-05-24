@@ -53,6 +53,8 @@
       window.addEventListener('DOMContentLoaded', (evt) => {
         // base html document parsed. no content, styles, etc.
 
+        window.promises.stylesheets = loadStylesheets(stylesheets);
+
         let parameters = window.parameters;
         let parentEl = document.getElementById('topics')
         let topicsTempl = parentEl.getElementsByClassName('template')[0];
@@ -87,8 +89,6 @@
           });
 
       });
-
-      window.promises.stylesheets = loadStylesheets(stylesheets);
 
     </script>
 
