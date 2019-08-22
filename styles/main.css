@@ -1,19 +1,19 @@
 
 @font-face {
   font-family: common;
-  src: url(/fonts/kelson-sans-regular.otf);
+  src: url(http://cdn.dorkusmalorkus.org/blog/fonts/kelson-sans-regular.otf);
 }
 /*@font-face {
   font-family: common-light;
-  src: url(/fonts/kelson-sans-light.otf);
+  src: url(http://cdn.dorkusmalorkus.org/blog/fonts/kelson-sans-light.otf);
 }*/
 /*@font-face {
   font-family: common-bold;
-  src: url(/fonts/kelson-sans-bold.otf);
+  src: url(http://cdn.dorkusmalorkus.org/blog/fonts/kelson-sans-bold.otf);
 }*/
 @font-face {
   font-family: title;
-  src: url(/fonts/makhina.ttf);
+  src: url(http://cdn.dorkusmalorkus.org/blog/fonts/makhina.ttf);
 }
 
 :root {
